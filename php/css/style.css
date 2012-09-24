@@ -1,0 +1,116 @@
+﻿<style>
+	html { 
+		background: white; 
+	}
+	
+	body {
+		font-family: "Cooper Std Black";
+		text-align:center;
+		height:auto;
+		width:auto;
+	}
+	
+	a {
+		color: white;
+	}
+	
+	h1 {
+		padding: 10px 78px;
+		background-color: #46CFFC;
+		text-decoration: none;
+		color:white;  
+	}
+	
+	h2 { 
+		margin: 2em 0 .5em;
+		border-bottom: 1px solid #999;
+	}
+	
+	#outer_wrapper {
+		height: auto;
+		width:auto;
+		text-align:center;
+		background-color:white;
+		margin-left:auto; 
+		margin-right:auto; 
+	}
+	
+	#top_banner{
+		background-image:url('../images/TopGearsBanner.jpg');
+		height: 130px;
+		width: auto;
+		background-repeat:repeat-x;
+	}
+	
+	#inner_wrapper {
+		text-align:center;
+		display:block;
+	}
+	
+	#inner_wrapper img {
+		margin:auto;
+	}
+
+	ul#menu {
+		padding: 0px;
+		margin: 40px;
+		font-family: "20px", "Cooper Std Black";
+		list-style-type: none;
+	}
+      
+	ul#menu li {
+		display: inline;
+	}
+	  
+	ul#menu li a {
+		padding: 20px 65px;
+		border: 1px solid #aaa;
+		background-color: #46CFFC;
+		text-decoration:none;
+		font-weight:bold;
+		color:white;
+		-moz-border-radius:10px;
+		-webkit-border-radius:10px;
+		border-radius:10px;
+		border-bottom:1px solid #9f9f9f;
+		-moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+		-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+		box-shadow:inset 0 1px 0 rgba(255,255,255,0.5);
+	}
+  
+	ul#menu li a.new_event {
+		background-color:#61ff02;
+	}
+  
+	ul#menu a:hover {
+		background: #white;
+		color: #222;
+	}
+  
+	ul#menu li.current a {
+		border:3px solid black;
+	}
+      
+	#daily_content ul {
+		text-align:center;
+		height:auto;
+		width:768px;
+		list-style-type: none;
+		background-color:#CCFFFF;
+		list-style-type: none;
+		padding:0px;
+		margin:0px;
+	}
+  
+	#daily_content ul li {
+	    color: black;
+	    font-family: "Cooper Std Black";
+	    font-size:30px;
+	    border:thin #CCCCCC solid;
+	    padding: 10px;
+	}
+	
+	#weekly_content {
+		display:block;
+	}
+</style>
