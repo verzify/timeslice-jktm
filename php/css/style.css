@@ -50,7 +50,7 @@
 		display:block;
 	}
 	
-	#inner_wrapper img {
+	#inner_wrapper img#pie_chart {
 		margin-left:auto; 
 		margin-right:auto;
 		height: 402px;
@@ -104,6 +104,7 @@
 		text-align:center;
 		height:auto;
 		width:768px;
+		list-style-type: none;
 		background-color:#CCFFFF;
 		list-style-type: none;
 		margin-left:auto; 
@@ -132,5 +133,10 @@
 	#footer {
 		font-size:small;
 		clear:both;
+	}
+	
+	.spacer {
+		width:auto;
+		height:25px;
 	}
 </style>
