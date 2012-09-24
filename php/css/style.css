@@ -1,4 +1,4 @@
-﻿<style>
+﻿<style type="text/css">
 	html { 
 		background: white; 
 	}
@@ -8,6 +8,8 @@
 		text-align:center;
 		height:auto;
 		width:auto;
+		margin-left:auto; 
+		margin-right:auto; 
 	}
 	
 	a {
@@ -48,7 +50,8 @@
 	}
 	
 	#inner_wrapper img {
-		margin:auto;
+		margin-left:auto; 
+		margin-right:auto; 
 	}
 
 	ul#menu {
@@ -98,8 +101,8 @@
 		list-style-type: none;
 		background-color:#CCFFFF;
 		list-style-type: none;
-		padding:0px;
-		margin:0px;
+		margin-left:auto; 
+		margin-right:auto; 
 	}
   
 	#daily_content ul li {
@@ -112,5 +115,10 @@
 	
 	#weekly_content {
 		display:block;
+	}
+	
+	#footer {
+		font-size:small;
+		clear:both;
 	}
 </style>
