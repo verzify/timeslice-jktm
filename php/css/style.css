@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 ﻿<style type="text/css">
-=======
-﻿<style>
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 	html { 
 		background: white; 
 	}
@@ -12,13 +9,10 @@
 		text-align:center;
 		height:auto;
 		width:auto;
-<<<<<<< HEAD
 		margin-left:auto; 
 		margin-right:auto; 
 		margin-top: 0;
 		padding-top: 0;
-=======
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 	}
 	
 	a {
@@ -58,16 +52,11 @@
 		display:block;
 	}
 	
-<<<<<<< HEAD
 	#inner_wrapper img#pie_chart {
 		margin-left:auto; 
 		margin-right:auto;
 		height: 402px;
 		width: 500px;
-=======
-	#inner_wrapper img {
-		margin:auto;
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 	}
 
 	ul#menu {
@@ -75,12 +64,9 @@
 		margin: 40px;
 		font-family: "20px", "Cooper Std Black";
 		list-style-type: none;
-<<<<<<< HEAD
 		width:800px;
 		margin-left:auto;
 		margin-right:auto;
-=======
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 	}
       
 	ul#menu li {
@@ -123,15 +109,11 @@
 		list-style-type: none;
 		background-color:#CCFFFF;
 		list-style-type: none;
-<<<<<<< HEAD
 		margin-left:auto; 
 		margin-right:auto; 
 		text-decoration:none;
 		padding:0px;
-=======
-		padding:0px;
 		margin:0px;
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 	}
   
 	#daily_content ul li {
@@ -145,7 +127,6 @@
 	#weekly_content {
 		display:block;
 	}
-<<<<<<< HEAD
 	
 	#weekly_content img {
 		height:311px;
@@ -161,6 +142,4 @@
 		width:auto;
 		height:25px;
 	}
-=======
->>>>>>> 7f1602ab68a17a4d2a41b892c8136749073f4d91
 </style>
