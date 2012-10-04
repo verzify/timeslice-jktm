@@ -1,23 +1,30 @@
 ﻿<!doctype html>
 <html lang="en">
 	<head>
-	  <meta charset="utf-8">
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	  <LINK REL=StyleSheet HREF="css/style.css" TYPE="text/css" MEDIA=screen>
-	  <title>Welcome to Time Slice!</title>
-	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+          <link rel="stylesheet" href="themes/idp.min.css" />
+          <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
+          <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+          <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>          
+	  <title>Time Slice - Main Menu</title>
+          
+	  </head>
 	<body>
-		<div id="outer_wrapper" align="center">
-			<div id="top_banner"></div>
-			<div id="inner_wrapper">
-				<img src="images/TimeSliceLogo.jpg" alt="Time Slice App">
-				<div class="spacer"></div>
-				<a href="main.html"><img src="images/StartButton.png" alt="Start"></a>
-			</div>
-			<div id="footer">
-				<hr>
-				Time Slice. Copyright 2012 by JKTM.
-			</div>
-		</div>
+        <div data-role="page">
+            
+            <div data-role="header" style="background-image:url('images/TopGearsBanner.jpg');
+		height: 35px;
+		width: auto;
+		background-repeat:repeat-x;">
+            </div><!-- /header -->
+            
+            <div data-role="content">
+				
+				<img src="images/TimeSliceLogo.jpg" alt="Time Slice App" style="width:100%;height:auto"/>
+				<a href="main.html" data-role="button" data-icon="star" style="background:#7CFC00">Start</a>
+            </div><!-- /content -->
+            
+        </div><!-- /page -->
+
 	</body>
 </html>
