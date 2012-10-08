@@ -10,26 +10,43 @@
           
 	  </head>
 	<body>
-        <div data-role="page">
+        <div data-role="page" style="background-color:white">
             
             <div data-role="header" style="background-image:url('images/TopGearsBanner.jpg');
-		height: 35px;
-		width: auto;
-		background-repeat:repeat-x;">
+				height: 35px;
+				width: auto;
+				background-repeat:repeat-x;">
             </div><!-- /header -->
             
-            <div data-role="content">
+            <div data-role="content" style="background-color:white">
 
-			<div data-role="controlgroup" data-type="horizontal" data-mini="true" style="margin: 0 -8.1em;width:100%;text-align: center;position:relative;left:50%">
-				<a href="#" data-role="button" >Day</a>
+			<div data-role="controlgroup" data-type="horizontal" data-mini="false" data-inline="true" style="margin-left:auto;margin-right:auto">
+				<a href="main.html" data-role="button" >Day</a>
 				<a href="week_view.html" data-role="button" >Week</a>		
-				<a href="#" data-role="button"  >Month</a>		
-				<a href="#" data-role="button" style="background:#7CFC00">New Event</a>
+				<a href="month_view.html" data-role="button"  >Month</a>		
+				<a href="new_event.html" data-role="button" >New Event</a>
 			</div>
-				<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:100%;height:auto" />
+
+<!--
+			<ul id="menu">
+				<li>
+					<a href="main.html">Day</a>
+				</li>
+				<li>
+					<a href="week_view.html">Week</a>
+				</li>
+				<li>
+					<a href="month_view.html">Month</a>
+				</li>
+				<li>
+					<a href="new_event.html">New Event</a>
+				</li>
+			</ul>
+-->
+			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:100%;height:auto" />
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
-					<h2>3.30pm - IDP Class</h2>
+					<h3>3.30pm - IDP Class</h3>
 					<p>IDP Lesson with interesting prof Ben</p>
 				</div>	
 				<div data-role="collapsible">
