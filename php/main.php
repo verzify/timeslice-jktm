@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -10,21 +10,35 @@
           
 	  </head>
 	<body>
+		<div id="selected_date">
+			<?php 
+				if(isset($_GET['selected_date']) || $_GET['selected_date']==null)
+				{
+					print(date('d F Y'));
+				}
+				else
+				{
+					$selected_date = (string)$_GET['selected_date'];
+					$day = substr($selected_date, 0, 2);
+					$month = substr($selected_date, 2, 2);
+					$year = substr($selected_date, 4, 4);
+					
+					print(date('d F Y', strtotime($day."-".$month."-".$year)));
+				}
+			?>	
+		</div>
         <div data-role="page" style="background-color:white">
             
-            <div style="background-image:url('images/TopGearsBanner.jpg');
-				height: 68px;
-				width: auto;
-				background-repeat:repeat-x;">
-            </div><!-- /header -->
+            <div id="top_banner"></div><!-- top banner -->
             
             <div data-role="content" style="background-color:white">
 
 			<div data-role="controlgroup" data-type="horizontal" data-mini="false" data-inline="true" style="margin-left:auto;margin-right:auto">
-				<a href="main.html" data-role="button" >Day</a>
+				<a href="new_event.html" data-role="button" >New Event</a>
+				<a href="main.php" data-role="button" >Day</a>
 				<a href="week_view.html" data-role="button" >Week</a>		
 				<a href="month_view.html" data-role="button" data-ajax="false" >Month</a>		
-				<a href="new_event.html" data-role="button" >New Event</a>
+				<a href="settings.html" data-role="button" >Settings</a>
 			</div>
 
 <!--
@@ -43,7 +57,7 @@
 				</li>
 			</ul>
 -->
-			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:350px;height:350px" />
+			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:auto;height:auto" />
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
 					<h3>3.30pm - IDP Class</h3>
