@@ -1,4 +1,4 @@
-/*
+﻿/*
 * jQuery Mobile Framework 1.1.1 1981b3f5ec22675ae47df8f0bdf9622e7780e90e
 * http://jquerymobile.com
 *
@@ -11,6 +11,23 @@
 
 /* A
 -----------------------------------------------------------------------------------------------------------*/
+
+.small_clear {
+	width:auto;
+	height:40px;
+}
+      
+.clear {
+	width:auto;
+	height:80px;
+}
+
+#top_banner {
+	background-image:url('../images/TopGearsBanner.jpg');
+	height: 68px;
+	width: auto;
+	background-repeat:repeat-x;
+}
 
 .ui-bar-a {
 	border: 1px solid #cccccc /*{a-bar-border}*/;
