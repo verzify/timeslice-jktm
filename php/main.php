@@ -10,23 +10,6 @@
           
 	  </head>
 	<body>
-		<div id="selected_date">
-			<?php 
-				if(isset($_GET['selected_date']) || $_GET['selected_date']==null)
-				{
-					print(date('d F Y'));
-				}
-				else
-				{
-					$selected_date = (string)$_GET['selected_date'];
-					$day = substr($selected_date, 0, 2);
-					$month = substr($selected_date, 2, 2);
-					$year = substr($selected_date, 4, 4);
-					
-					print(date('d F Y', strtotime($day."-".$month."-".$year)));
-				}
-			?>	
-		</div>
         <div data-role="page" style="background-color:white">
             
             <div id="top_banner"></div><!-- top banner -->
@@ -57,6 +40,23 @@
 				</li>
 			</ul>
 -->
+			<div id="selected_date">
+				<?php 
+					if(isset($_GET['selected_date']) || $_GET['selected_date']==null)
+					{
+						print(date('d F Y'));
+					}
+					else
+					{
+						$selected_date = (string)$_GET['selected_date'];
+						$day = substr($selected_date, 0, 2);
+						$month = substr($selected_date, 2, 2);
+						$year = substr($selected_date, 4, 4);
+						
+						print(date('d F Y', strtotime($day."-".$month."-".$year)));
+					}
+				?>	
+			</div>
 			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:auto;height:auto" />
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
