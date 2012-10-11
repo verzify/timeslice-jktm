@@ -8,7 +8,7 @@
           <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>          
 	  <title>Time Slice - Day View</title>
           
-	  </head>
+	</head>
 	<body>
         <div data-role="page" style="background-color:white">
             
@@ -34,7 +34,7 @@
 				?>	
 			</div>
 			
-			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" />
+			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" style="width:250px;height:250px"/>
 			
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
