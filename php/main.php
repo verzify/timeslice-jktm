@@ -57,7 +57,9 @@
 					}
 				?>	
 			</div>
-			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribut ion" style="width:auto;height:auto" />
+			
+			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" style="width:auto;height:auto" />
+			
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
 					<h3>3.30pm - IDP Class</h3>
