@@ -6,43 +6,19 @@
           <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
           <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
           <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>          
-	  <title>Time Slice - Main Menu</title>
+	  <title>Time Slice - Day View</title>
           
 	  </head>
 	<body>
         <div data-role="page" style="background-color:white">
             
-            <div id="top_banner"></div><!-- top banner -->
-            
-            <div data-role="content" style="background-color:white">
+    	<div id="top_banner"></div><!-- top banner -->
+    	
+        <div data-role="content" style="background-color:white">
 
-			<div data-role="controlgroup" data-type="horizontal" data-mini="false" data-inline="true" style="margin-left:auto;margin-right:auto">
-				<a href="new_event.html" data-role="button" >New Event</a>
-				<a href="main.php" data-role="button" >Day</a>
-				<a href="week_view.html" data-role="button" >Week</a>		
-				<a href="month_view.html" data-role="button" data-ajax="false" >Month</a>		
-				<a href="settings.html" data-role="button" >Settings</a>
-			</div>
-
-<!--
-			<ul id="menu">
-				<li>
-					<a href="main.html">Day</a>
-				</li>
-				<li>
-					<a href="week_view.html">Week</a>
-				</li>
-				<li>
-					<a href="month_view.html">Month</a>
-				</li>
-				<li>
-					<a href="new_event.html">New Event</a>
-				</li>
-			</ul>
--->
 			<div id="selected_date">
 				<?php 
-					if(isset($_GET['selected_date']) || $_GET['selected_date']==null)
+					if(isset($_GET) || $_GET['selected_date']==null)
 					{
 						print(date('d F Y'));
 					}
@@ -58,7 +34,7 @@
 				?>	
 			</div>
 			
-			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" style="width:auto;height:auto" />
+			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" />
 			
 			<div data-role="collapsible-set" data-theme="a">
 				<div data-role="collapsible">
@@ -80,6 +56,17 @@
 			</div>	
             </div><!-- /content -->
             
+            <div data-role="footer" data-id="fool" data-position="fixed">
+            	<div data-role="navbar">
+					<ul>
+						<li><a href="main.php" data-role="button" >Day</a></li>
+						<li><a href="week_view.html" data-role="button" >Week</a></li>
+						<li><a href="new_event.html" data-role="button" >+</a></li>
+						<li><a href="month_view.html" data-role="button" data-ajax="false" >Month</a></li>
+						<li><a href="settings.html" data-role="button" >Settings</a></li>
+					</ul>
+				</div>
+            </div>
         </div><!-- /page -->
 
 	</body>
