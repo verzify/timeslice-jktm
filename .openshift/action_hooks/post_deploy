@@ -1,5 +1,5 @@
 #!/bin/bash
-git push
+git push https://github.com/verzify/timeslice-jktm.git
 # This is a simple post deploy hook executed after your application 
 # is deployed and started.  This script gets executed directly, so 
 # it could be python, php, ruby, etc.
