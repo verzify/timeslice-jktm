@@ -3,7 +3,34 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
           <?php include 'imports.html'; ?>         
 	  <title>Time Slice - Day View</title>
-          
+    <script type="text/javascript">
+		$(document).bind("pagechange" ,function (event , ui){
+			$('#calendar').fullCalendar({
+			header: {
+				left: 'prev, today',
+				center: 'title',
+				right: 'next'
+			},
+			editable: true,
+			dayClick: function(date, allDay, jsEvent, view) {
+				
+				var day = date.getDate()
+				if(day < 10){
+					day = "0" + day;
+				}	
+				var month = date.getMonth() + 1;
+				
+				if(month < 10){
+					month = "0" + month;
+
+				}	
+				
+				var year = date.getFullYear();
+       			 window.location = "main.php?selected_date=" + day + month + year;
+				}
+			});
+		});
+	</script>
 	</head>
 	<body>
         <div data-role="page" style="background-color:white">
