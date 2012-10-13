@@ -1,11 +1,7 @@
-<!doctype html>
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-          <link rel="stylesheet" href="themes/idp.min.css" />
-          <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
-          <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-          <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>          
+          <?php include 'imports.html'; ?>         
 	  <title>Time Slice - Day View</title>
           
 	</head>
@@ -18,9 +14,9 @@
 
 			<div id="selected_date">
 				<?php 
-					if(isset($_GET) || $_GET['selected_date']==null)
-					{
-						print(date('d F Y'));
+					if(!isset($_GET['selected_date']))
+					{	
+						print(date('d F Y'));	
 					}
 					else
 					{
@@ -56,17 +52,7 @@
 			</div>	
             </div><!-- /content -->
             
-            <div data-role="footer" data-id="fool" data-position="fixed">
-            	<div data-role="navbar">
-					<ul>
-						<li><a href="main.php" data-role="button" >Day</a></li>
-						<li><a href="week_view.html" data-role="button" >Week</a></li>
-						<li><a href="new_event.html" data-role="button" >+</a></li>
-						<li><a href="month_view.html" data-role="button" data-ajax="false" >Month</a></li>
-						<li><a href="settings.html" data-role="button" >Settings</a></li>
-					</ul>
-				</div>
-            </div>
+            <?php include 'footer.html'; ?>   
         </div><!-- /page -->
 	</body>
 </html>
