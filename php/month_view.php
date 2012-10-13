@@ -20,6 +20,11 @@
 					day = "0" + day;
 				}	
 				var month = date.getMonth() + 1;
+				
+				if(month < 10){
+					month = "0" + day;
+				}	
+				
 				var year = date.getFullYear();
        			 window.location = "main.php?selected_date=" + day + month + year;
     		}
