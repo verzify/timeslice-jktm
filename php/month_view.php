@@ -23,6 +23,7 @@
 				
 				if(month < 10){
 					month = "0" + month;
+
 				}	
 				
 				var year = date.getFullYear();
