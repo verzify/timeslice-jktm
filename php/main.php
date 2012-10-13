@@ -26,7 +26,8 @@
 				}	
 				
 				var year = date.getFullYear();
-       			 window.location = "main.php?selected_date=" + day + month + year;
+					
+       			 $.mobile.changePage("main.php?selected_date=" + day + month + year);
 				}
 			});
 		});
