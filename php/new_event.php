@@ -13,30 +13,55 @@
 				
 	        <div data-role="content" style="background-color:white">
 				<div id="form">
-					<label for="eName">Event Name:</label>
-					<input type="text" name="eName" id="eName"/>
-					
-					<label for="eLocation">Location:</label>
-					<input type="text" name="eLocation" id="eLocation" />
-					
-					<label for="eCategory" class="select">Category</label>
-					<select name="category" id="eCategory">
-					   <option value="Work">Work</option>
-					   <option value="Play">Play</option>
-					   <option value="School">School</option>
-					   <option value="Home">Home</option>
-					</select>
-					
-					<label for="eDate">Date</label>
-					<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}'/>
-					
-					<label for="eStartTime">Start Time</label>
-					<input type="date" name="eStartTime" id="eStartTime" data-role="datebox" 
-					data-options='{"mode": "timebox"}'/>
-					
-					<label for="eEndTime">End Time</label>
-					<input type="date" name="eEndTime" id="eEndTime" data-role="datebox" 
-					data-options='{"mode": "timebox"}'/>
+					<form id="eventForm" action="main.php" method="GET">
+						<label for="eName">Event Name:</label>
+						<input type="text" name="eName" id="eName" required="required"/>
+						
+						<label for="eLocation">Location:</label>
+						<input type="text" name="eLocation" id="eLocation" required="required"/>
+						
+						<label for="eCategory" class="select">Category</label>
+						<select name="category" id="eCategory" >
+						   <option value="Work">Work</option>
+						   <option value="Play">Play</option>
+						   <option value="School">School</option>
+						   <option value="Home">Home</option>
+						</select>
+						
+						<label for="eDate">Start Date</label>
+						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="
+						<?php
+						
+							print(date('d F Y'));
+							
+						?>"/>
+						
+						<label for="eDate">End Date</label>
+						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="
+						<?php
+							print(date('d F Y'));
+							
+						?>"/>
+						
+						<label for="eStartTime">Start Time</label>
+						<input type="date" name="eStartTime" id="eStartTime" data-role="datebox" 
+						data-options='{"mode": "timebox"}' value="<?php
+							print(date('h:i A'));
+							
+						?>" required="required"/>						
+						<label for="eEndTime">End Time</label>
+						<input type="date" name="eEndTime" id="eEndTime" data-role="datebox" 
+						data-options='{"mode": "timebox"}' value="<?php
+							print(date('h:i A',time()+60*60));
+							
+						?>" required="required"/>
+						
+						<br/>
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a"><button type="submit">Cancel</button></div>
+							<div id="submit" class="ui-block-b"><button type="submit" data-theme="a">Submit</button></div>
+						</fieldset>
+					</form>	
 				</div>
 	        </div><!-- /content -->
             <div data-role="footer" data-id="fool" data-position="fixed">

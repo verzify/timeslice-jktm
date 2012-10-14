@@ -30,6 +30,12 @@
        			 $.mobile.changePage("main.php?selected_date=" + d + m + y);
 				}
 			});
+			
+			
+			$("#eventForm").submit(function(){
+				alert("Event Successfully Added!\nFor now no clashes!");
+				
+			});	
 		});
 	</script>
 	</head>
