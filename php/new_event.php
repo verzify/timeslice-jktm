@@ -2,10 +2,7 @@
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-          <link rel="stylesheet" href="themes/idp.min.css" />
-          <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
-          <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-          <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>          
+          <?php include 'imports.html'; ?> 
 	  <title>Time Slice - New Event</title>
           
 	</head>
@@ -16,32 +13,39 @@
 				
 	        <div data-role="content" style="background-color:white">
 				<div id="form">
-					<label for="basic">Event Name:</label>
-					<input type="text" name="name" id="basic" data-mini="true" />
+					<label for="eName">Event Name:</label>
+					<input type="text" name="eName" id="eName"/>
 					
-					<label for="basic">Event Name:</label>
-					<input type="text" name="name" id="basic" data-mini="true" />
+					<label for="eLocation">Location:</label>
+					<input type="text" name="eLocation" id="eLocation" />
 					
-					<label for="category" class="select">Category</label>
-					<select name="category" id="select-choice-0">
+					<label for="eCategory" class="select">Category</label>
+					<select name="category" id="eCategory">
 					   <option value="Work">Work</option>
 					   <option value="Play">Play</option>
 					   <option value="School">School</option>
 					   <option value="Home">Home</option>
 					</select>
+					
+					<label for="eDate">Date: (Cal mode)</label>
+					<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}'/>
+					
+					<label for="eDateFlip">Date: (slide mode)</label>
+					<input type="date" name="eDateFlip" id="eDateFlip" data-role="datebox" 
+					data-options='{"mode": "flipbox"}'/>
+					
+					<label for="eTime">Time:(Time mode)</label>
+					<input type="date" name="eTime" id="eTime" data-role="datebox" 
+					data-options='{"mode": "timebox"}'/>
+					
+					<label for="eTimeFlip">Time:(Flip mode)</label>
+					<input type="date" name="eTimeFlip" id="eTimeFlip" data-role="datebox" 
+					data-options='{"mode": "timeflipbox"}'/>
 				</div>
 	        </div><!-- /content -->
             <div data-role="footer" data-id="fool" data-position="fixed">
 				
-            	<div data-role="navbar">
-					<ul>
-						<li><a href="main.php" data-role="button" >Day</a></li>
-						<li><a href="week_view.html" data-role="button" >Week</a></li>
-						<li><a href="new_event.html" data-role="button" >+</a></li>
-						<li><a href="month_view.html" data-role="button" data-ajax="false" >Month</a></li>
-						<li><a href="settings.html" data-role="button" >Settings</a></li>
-					</ul>
-				</div>
+            	<?php include 'footer.html'; ?> 
             </div>
         </div><!-- /page -->
 
