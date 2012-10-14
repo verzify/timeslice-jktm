@@ -14,20 +14,20 @@
 			editable: true,
 			dayClick: function(date, allDay, jsEvent, view) {
 				
-				var day = date.getDate()
-				if(day < 10){
-					day = "0" + day;
+				var d = date.getDate()
+				if(d < 10){
+					d = "0" + d;
 				}	
-				var month = date.getMonth() + 1;
+				var m = date.getMonth() + 1;
 				
-				if(month < 10){
-					month = "0" + month;
+				if(m < 10){
+					m = "0" + m;
 
 				}	
 				
-				var year = date.getFullYear();
+				var y = date.getFullYear();
 					
-       			 $.mobile.changePage("main.php?selected_date=" + day + month + year);
+       			 $.mobile.changePage("main.php?selected_date=" + d + m + y);
 				}
 			});
 		});

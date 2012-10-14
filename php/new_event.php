@@ -27,20 +27,16 @@
 					   <option value="Home">Home</option>
 					</select>
 					
-					<label for="eDate">Date: (Cal mode)</label>
+					<label for="eDate">Date</label>
 					<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}'/>
 					
-					<label for="eDateFlip">Date: (slide mode)</label>
-					<input type="date" name="eDateFlip" id="eDateFlip" data-role="datebox" 
-					data-options='{"mode": "flipbox"}'/>
-					
-					<label for="eTime">Time:(Time mode)</label>
-					<input type="date" name="eTime" id="eTime" data-role="datebox" 
+					<label for="eStartTime">Start Time</label>
+					<input type="date" name="eStartTime" id="eStartTime" data-role="datebox" 
 					data-options='{"mode": "timebox"}'/>
 					
-					<label for="eTimeFlip">Time:(Flip mode)</label>
-					<input type="date" name="eTimeFlip" id="eTimeFlip" data-role="datebox" 
-					data-options='{"mode": "timeflipbox"}'/>
+					<label for="eEndTime">End Time</label>
+					<input type="date" name="eEndTime" id="eEndTime" data-role="datebox" 
+					data-options='{"mode": "timebox"}'/>
 				</div>
 	        </div><!-- /content -->
             <div data-role="footer" data-id="fool" data-position="fixed">
