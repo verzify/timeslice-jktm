@@ -29,31 +29,25 @@
 						</select>
 						
 						<label for="eDate">Start Date</label>
-						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="
-						<?php
-						
-							print(date('d F Y'));
-							
+						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="<?php
+							print(date('d F Y'));	
 						?>"/>
 						
 						<label for="eDate">End Date</label>
-						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="
-						<?php
-							print(date('d F Y'));
-							
+						<input type="date" name="eDate" id="eDate" data-role="datebox" data-options='{"mode": "calbox"}' value="<?php
+							print(date('d F Y'));	
 						?>"/>
 						
 						<label for="eStartTime">Start Time</label>
 						<input type="date" name="eStartTime" id="eStartTime" data-role="datebox" 
 						data-options='{"mode": "timebox"}' value="<?php
 							print(date('h:i A'));
-							
-						?>" required="required"/>						
+						?>" required="required"/>
+						
 						<label for="eEndTime">End Time</label>
 						<input type="date" name="eEndTime" id="eEndTime" data-role="datebox" 
 						data-options='{"mode": "timebox"}' value="<?php
 							print(date('h:i A',time()+60*60));
-							
 						?>" required="required"/>
 						
 						<br/>
