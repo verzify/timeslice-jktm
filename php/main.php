@@ -66,7 +66,7 @@
           <?php include 'imports.html'; ?>         
 	  <title>Time Slice - Day View</title>
     <script type="text/javascript">
-		/*$(document).bind("pagechange" ,function (event , ui){
+		$(document).bind("pagechange" ,function (event , ui){
 			$('#calendar').fullCalendar({
 			header: {
 				left: 'prev, today',
@@ -98,15 +98,14 @@
 				alert("Event Successfully Added!\nFor now no clashes!");
 				
 			});	
-		});*/
+		});
 	</script>
 	</head>
 	<body>
-        <div data-role="page" style="background-color:white">
-            
+        <div data-role="page" style="background-color:white;text-align:center">
     	<div id="top_banner"></div><!-- top banner -->
     	
-        <div data-role="content" style="background-color:white;text-align:center">
+        <div data-role="content" style="background-color:white">
         	<div id="title_row">
         	 <?php print($selected_day);  ?>
 				<a data-role="button" data-icon="arrow-l" href="main.php?selected_date=
