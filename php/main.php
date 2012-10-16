@@ -66,7 +66,7 @@
           <?php include 'imports.html'; ?>         
 	  <title>Time Slice - Day View</title>
     <script type="text/javascript">
-		/*$(document).bind("pagechange" ,function (event , ui){
+		$(document).bind("pagechange" ,function (event , ui){
 			$('#calendar').fullCalendar({
 			header: {
 				left: 'prev, today',
@@ -98,7 +98,7 @@
 				alert("Event Successfully Added!\nFor now no clashes!");
 				
 			});	
-		});*/
+		});
 	</script>
 	</head>
 	<body>
@@ -147,11 +147,32 @@
 <?php
 
 				$events = explode(";",$day_events);
-				
+				$array = array();
 				for ($i=0; $i<sizeof($events); $i++)
 				{
 					$details = explode(",",$events[$i]);
+					$time = explode(":",$details[3]);
+					$period = substr($time[1],3);
 					
+					if($period == "PM" ){
+						if($time[0] != "12"){
+							$time[0] += 12;
+							$time[0] = $time[0].substr($time[1],0,-2)+0;
+						}else{
+							$time[0] = $time[0].substr($time[1],0,-2)+0;
+						}
+					}else{
+						$time[0] = $time[0].substr($time[1],0,-2) + 0;
+					}
+					
+					$array[$time[0]] = $events[$i];
+				}
+
+				ksort($array);
+
+				foreach($array as $key => $val)
+				{
+					$details = explode(",",$val);
 					print("<div data-role='collapsible'>");
 					print("<h3>" . $details[3] . " - " . $details[0] . "</h3>");
 					print("<p>Location: " . $details[1] . "</p>");
