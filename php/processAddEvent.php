@@ -8,42 +8,53 @@
 		$eLocation = $_GET['eLocation'];
 		$category = $_GET['category'];
 		$eStartDate = $_GET['eStartDate'];
-		//echo $eStartDate;
+		$eStartTime = $_GET['eStartTime'];
+		$eEndTime = $_GET['eEndTime'];
+		// echo $eName;
+		// echo $eLocation;
+		// echo $category;
+		// echo $eStartDate;
+		// echo $eStartTime;
+		// echo $eEndTime;
 		
-		$day = substr($eStartDate, 0, 2);
-		$month = substr($eStartDate, 3, 2);
-		$year = substr($eStartDate, 6, 4);
-		//echo $day;
-		//echo $month;
-		//echo $year;
+		$date = explode(" ",$eStartDate);
+		$day = $date[0];
+		$month = $date[1];
+		$year = $date[2];
+		echo $day;
+		echo $month;
+		echo $year;
 		
 		$selected_day = date('N',strtotime($day."-".$month."-".$year));
-		//echo $selected_day;
+		echo "selected day is ".$selected_day;
 		
 		switch ($selected_day) {
 			case 1:
-				echo "this is monday";
+				echo $_SESSION['day1_events'];
+				$_SESSION['day1_events'] = $_SESSION['day1_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
+				
 				break;
 			case 2:
-				$_SESSION['day2_events'] = $_SESSION['day2_events']."Dance Practice,ACC,CCA,9:00 AM, 12:00 AM;";
+				echo $_SESSION['day2_events'];
+				$_SESSION['day2_events'] = $_SESSION['day2_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 			case 3:
-				echo "this is weds";
+				$_SESSION['day3_events'] = $_SESSION['day3_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 			case 4:
-				echo "this is weds";
+				$_SESSION['day4_events'] = $_SESSION['day4_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 			case 5:
-				echo "this is weds";
+				$_SESSION['day5_events'] = $_SESSION['day5_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 			case 6:
-				echo "this is weds";
+				$_SESSION['day6_events'] = $_SESSION['day6_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 			case 7:
-				echo "this is weds";
+				$_SESSION['day7_events'] = $_SESSION['day7_events'].";".$eName.",".$eLocation.",".$category.",".$eStartTime.",".$eEndTime;
 				break;
 		}
-		//header("Location: main.php"); 
+		header("Location: main.php"); 
 	}
 	else
 	{

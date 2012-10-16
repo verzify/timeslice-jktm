@@ -94,10 +94,34 @@
 			});
 			
 			
-			$("#eventForm").submit(function(){
-				alert("Event Successfully Added!\nFor now no clashes!");
-				
-			});	
+			// $("#submit").click(function(){
+				// if($("#eName").val() == "clash"){
+					
+					// $(this).simpledialog({
+					// 'mode' : 'bool',
+					// 'prompt' : 'Conflict detected. Resolve?',
+					// 'useModal': true,
+					// 'buttons' : {
+					  // 'Resolve!': {
+						// click: function () {
+						  // $('#dialogoutput').text('Resolve!');
+						  
+						// }
+					  // },
+					  // 'Ignore': {
+						// click: function () {
+						  // $('#dialogoutput').text('Ignore');
+						  // $("#eventForm").submit();
+						// },
+						// icon: "delete",
+						// theme: "c"
+					  // }
+					// }
+				  // });
+
+				// }else{
+					
+				// }	
 		});
 	</script>
 	</head>
@@ -150,6 +174,7 @@
 				for ($i=0; $i<sizeof($events); $i++)
 				{
 					$details = explode(",",$events[$i]);
+				
 					$time = explode(":",$details[3]);
 					$period = substr($time[1],3);
 					
