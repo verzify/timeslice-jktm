@@ -102,11 +102,10 @@
 	</script>
 	</head>
 	<body>
-        <div data-role="page" style="background-color:white">
-            
+        <div data-role="page" style="background-color:white;text-align:center">
     	<div id="top_banner"></div><!-- top banner -->
     	
-        <div data-role="content" style="background-color:white;text-align:center">
+        <div data-role="content" style="background-color:white">
         	<div id="title_row">
         	 <?php print($selected_day);  ?>
 				<a data-role="button" data-icon="arrow-l" href="main.php?selected_date=
