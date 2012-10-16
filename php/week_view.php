@@ -12,25 +12,25 @@
 				
 	        <div data-role="content" style="background-color:white">
 				<div id="weekly_content">
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/monday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/tuesday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/wednesday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/thursday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/friday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/saturday.jpg" style="width:100%;height:auto" />
 					</a>
-					<a data-role="button" href="main.html">
+					<a data-role="button" href="main.php">
 						<img src="images/weekly/sunday.jpg" style="width:100%;height:auto" />
 					</a>
 				</div>
