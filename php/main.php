@@ -1,10 +1,72 @@
+<?php
+
+	session_start();
+	
+	$selected_date = null;
+	$selected_day = null;
+	
+	if (!isset($_GET['selected_date']))
+	{
+		$selected_day = date('D',strtotime(date('d F Y')));
+		$selected_date = date('d m Y');
+	}
+	else
+	{
+		$selected_date = (string)$_GET['selected_date'];
+		$day = substr($selected_date, 0, 2);
+		$month = substr($selected_date, 3, 2);
+		$year = substr($selected_date, 6, 4);
+
+		$selected_day = date('D',strtotime($day."-".$month."-".$year));
+	}
+	
+	$day_events = null;
+	$pie_name = null;
+	
+	if($selected_day == "Mon") 
+	{ 
+		$day_events = $_SESSION['day1_events'];
+		$pie_name = "day1";
+	}
+	elseif($selected_day == "Tue") 
+	{ 
+		$day_events = $_SESSION['day2_events']; 
+		$pie_name = "day2";
+	}
+	elseif($selected_day == "Wed") 
+	{ 
+		$day_events = $_SESSION['day3_events'];
+		$pie_name = "day3"; 
+	}
+	elseif($selected_day == "Thu") 
+	{ 
+		$day_events = $_SESSION['day4_events'];
+		$pie_name = "day4"; 
+	}
+	elseif($selected_day == "Fri") 
+	{ 
+		$day_events = $_SESSION['day5_events']; 
+		$pie_name = "day5";
+	}
+	elseif($selected_day == "Sat") 
+	{ 
+		$day_events = $_SESSION['day6_events']; 
+		$pie_name = "day6";
+	}
+	else 
+	{ 
+		$day_events = $_SESSION['day7_events']; 
+		$pie_name = "day7";
+	}
+?>
+
 <html lang="en">
 	<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
           <?php include 'imports.html'; ?>         
 	  <title>Time Slice - Day View</title>
     <script type="text/javascript">
-		$(document).bind("pagechange" ,function (event , ui){
+		/*$(document).bind("pagechange" ,function (event , ui){
 			$('#calendar').fullCalendar({
 			header: {
 				left: 'prev, today',
@@ -36,7 +98,7 @@
 				alert("Event Successfully Added!\nFor now no clashes!");
 				
 			});	
-		});
+		});*/
 	</script>
 	</head>
 	<body>
@@ -44,45 +106,61 @@
             
     	<div id="top_banner"></div><!-- top banner -->
     	
-        <div data-role="content" style="background-color:white">
+        <div data-role="content" style="background-color:white;text-align:center">
+        	<div id="title_row">
+        	 <?php print($selected_day);  ?>
+				<a data-role="button" data-icon="arrow-l" href="main.php?selected_date=
+<?php 
+					$day = substr($selected_date, 0, 2);
+					$month = substr($selected_date, 3, 2);
+					$year = substr($selected_date, 6, 4);
+					
+					$new_day = (int)$day-1;
 
-			<div id="selected_date">
-				<?php 
-					if(!isset($_GET['selected_date']))
-					{	
-						print(date('d F Y'));	
-					}
-					else
-					{
-						$selected_date = (string)$_GET['selected_date'];
-						$day = substr($selected_date, 0, 2);
-						$month = substr($selected_date, 2, 2);
-						$year = substr($selected_date, 4, 4);
-						
-						print(date('d F Y', strtotime($day."-".$month."-".$year)));
-					}
-				?>	
+					print($new_day." ".$month." ".$year);
+?>
+				" style="width:40px;float:left"></a>
+				<a data-role="button" data-icon="arrow-r" href="main.php?selected_date=
+<?php 
+					$day = substr($selected_date, 0, 2);
+					$month = substr($selected_date, 3, 2);
+					$year = substr($selected_date, 6, 4);
+					
+					$new_day = (int)$day+1;
+					
+					print($new_day." ".$month." ".$year);
+?>
+				" style="width:40px;float:right"></a>
+				<div id="selected_date">
+<?php 
+					$day = substr($selected_date, 0, 2);
+					$month = substr($selected_date, 3, 2);
+					$year = substr($selected_date, 6, 4);
+					
+					print(date('d F Y', strtotime($day."-".$month."-".$year)));
+?>	
+				</div>
 			</div>
+			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
 			
-			<img id="pie_chart" src="images/MainPagePie.jpg" alt="Pie Distribution" style="width:250px;height:250px"/>
-			
-			<div data-role="collapsible-set" data-theme="a">
-				<div data-role="collapsible">
-					<h3>3.30pm - IDP Class</h3>
-					<p>IDP Lesson with interesting prof Ben</p>
-				</div>	
-				<div data-role="collapsible">
-					<h3>6.45pm - Dinner with friends</h3>
-					<p>Nice dinner with friends</p>
-				</div>
-				<div data-role="collapsible">
-					<h3>9.00pm - Study IDP</h3>
-					<p>Study hard for my IDP</p>
-				</div>
-				<div data-role="collapsible">
-					<h3>11.00pm - Sleep</h3>
-					<p>Time to ZZZZ</p>
-				</div>
+			<div data-role="collapsible-set" data-theme="a" style="text-align:left">
+<?php
+
+				$events = explode(";",$day_events);
+				
+				for ($i=0; $i<sizeof($events); $i++)
+				{
+					$details = explode(",",$events[$i]);
+					
+					print("<div data-role='collapsible'>");
+					print("<h3>" . $details[3] . " - " . $details[0] . "</h3>");
+					print("<p>Location: " . $details[1] . "</p>");
+					print("<p>Category: " . $details[2] . "</p>");
+					print("<p>Start Time: " . $details[3] . "</p>");
+					print("<p>End Time: " . $details[4] . "</p>");
+					print("</div>");
+				}
+?>	
 			</div>	
             </div><!-- /content -->
             
