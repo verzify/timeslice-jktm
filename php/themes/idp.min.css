@@ -42,6 +42,16 @@
 	font-size:x-large;
 }
 
+#weekly_content {
+	text-align:center;
+	margin-top:20px;
+}
+
+#weekly_content a:link {color:black;}      /* unvisited link */
+#weekly_content a:visited {color:black;}  /* visited link */
+#weekly_content a:hover {color:#2499cb ;}  /* mouse over link */
+#weekly_content a:active {color:black;}  /* selected link */
+
 .ui-bar-a {
 	border: 1px solid #29ABE2 /*{a-bar-border}*/;
 	background: #29ABE2 /*{a-bar-background-color}*/;
