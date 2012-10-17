@@ -27,51 +27,56 @@
           
 	  </head>
 	<body style="background-color:white">
-        <div data-role="page" style="background-color:white">
-            
-	    	<div id="top_banner" style="background-color:white"></div><!-- top banner -->
-				<div id="title_row" style="background-color:white">
-				<a data-role="button" data-icon="arrow-l" href="week_view.php?selected_date=
-<?php 
-					$day = substr($selected_date, 0, 2);
-					$month = substr($selected_date, 3, 2);
-					$year = substr($selected_date, 6, 4);
-					
-					$new_day = (int)$day-7;
-
-					print($new_day." ".$month." ".$year);
-?>
-				" style="width:40px;float:left"></a>
-				<a data-role="button" data-icon="arrow-r" href="week_view.php?selected_date=
-<?php 
-					$day = substr($selected_date, 0, 2);
-					$month = substr($selected_date, 3, 2);
-					$year = substr($selected_date, 6, 4);
-					
-					$new_day = (int)$day+7;
-					
-					print($new_day." ".$month." ".$year);
-?>
-				" style="width:40px;float:right"></a>
-				<div id="selected_date">
-<?php 
-					$start_day = substr($selected_date, 0, 2);
-					$start_month = substr($selected_date, 3, 2);
-					$start_year = substr($selected_date, 6, 4);
-					
-					$end_day = substr($end_date, 0, 2);
-					$end_month = substr($end_date, 3, 2);
-					$end_year = substr($end_date, 6, 4);
-					
-					$start = date('d M', strtotime($start_day."-".$start_month."-".$start_year));
-					$end = date('d M', strtotime($end_day."-".$end_month."-".$end_year));
-					
-					print($start . " - " . $end);
-?>	
-				</div>
+        <div data-role="page" style="background-color:white;text-align:center">
+	        <div data-role="header" data-position="fixed">
+				<a href="index.php" data-icon="home">Home</a>
+				<h1>Weekly Slices</h1>
+				<a href="settings.php" data-icon="gear" class="ui-btn-right">Settings</a>
 			</div>
+			<div data-role="content" style="background-color:white">
+				<div id="title_row" style="background-color:white">
+				<?php print("Viewing Days");  ?>
+					<a data-role="button" data-icon="arrow-l" href="week_view.php?selected_date=
+<?php 
+						$day = substr($selected_date, 0, 2);
+						$month = substr($selected_date, 3, 2);
+						$year = substr($selected_date, 6, 4);
+						
+						$new_day = (int)$day-7;
+	
+						print($new_day." ".$month." ".$year);
+?>
+					" style="width:40px;float:left"></a>
+					<a data-role="button" data-icon="arrow-r" href="week_view.php?selected_date=
+<?php 
+						$day = substr($selected_date, 0, 2);
+						$month = substr($selected_date, 3, 2);
+						$year = substr($selected_date, 6, 4);
+						
+						$new_day = (int)$day+7;
+						
+						print($new_day." ".$month." ".$year);
+?>
+					" style="width:40px;float:right"></a>
+					<div id="selected_date">
+<?php 
+						$start_day = substr($selected_date, 0, 2);
+						$start_month = substr($selected_date, 3, 2);
+						$start_year = substr($selected_date, 6, 4);
+						
+						$end_day = substr($end_date, 0, 2);
+						$end_month = substr($end_date, 3, 2);
+						$end_year = substr($end_date, 6, 4);
+						
+						$start = date('d M', strtotime($start_day."-".$start_month."-".$start_year));
+						$end = date('d M', strtotime($end_day."-".$end_month."-".$end_year));
+						
+						print($start . " - " . $end);
+?>	
+					</div>
+				</div>
 
-	        <div data-role="content" style="background-color:white">
+	        
 				<div id="weekly_content" style="text-align:center;background-color:white">
 <?php 
 
