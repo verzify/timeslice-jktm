@@ -67,6 +67,7 @@
 	  <title>Time Slice - Day View</title>
     <script type="text/javascript">
 		$(document).bind("pagechange" ,function (event , ui){
+			
 			$('#calendar').fullCalendar({
 			header: {
 				left: 'prev, today',
@@ -121,7 +122,27 @@
 				}else{
 					return true;
 				}
-			});	
+			});
+			
+			
+			var mainView = true;
+			
+			$("a:contains('Edit')").click(function(){
+				
+				if(mainView){
+					$("div[id=mainView]").hide("slow");
+					$('div[id=editView]').show("slow");
+					mainView = false;
+				}else{
+					$('div[id=editView]').hide("slow");
+					$('div[id=mainView]').show("slow");
+					mainView = true;
+				}
+			});
+			
+			$("a[name=deleteEvent]").click(function(){
+				return confirm("Delete Event?");
+			});
 		});
 	</script>
 	</head>
@@ -130,33 +151,23 @@
         <div data-role="header" data-position="fixed">
 			<a href="index.php" data-icon="home">Home</a>
 			<h1>Daily Slices</h1>
-			<a href="settings.php" data-icon="gear" class="ui-btn-right">Settings</a>
+			<a href="#" id="edit">Edit</a>
 		</div>
         <div data-role="content" style="background-color:white">
         	<div id="title_row">
         	 <?php print($selected_day);  ?>
-				<a data-role="button" data-icon="arrow-l" href="main.php?selected_date=
-<?php 
+				<a data-role="button" data-icon="arrow-l" href="main.php?selected_date=<?php 
 					$day = substr($selected_date, 0, 2);
 					$month = substr($selected_date, 3, 2);
 					$year = substr($selected_date, 6, 4);
-					
 					$new_day = (int)$day-1;
-
-					print($new_day." ".$month." ".$year);
-?>
-				" style="width:40px;float:left"></a>
-				<a data-role="button" data-icon="arrow-r" href="main.php?selected_date=
-<?php 
+					echo $new_day." ".$month." ".$year;?>" style="width:40px;float:left"></a>
+				<a data-role="button" data-icon="arrow-r" href="main.php?selected_date=<?php
 					$day = substr($selected_date, 0, 2);
 					$month = substr($selected_date, 3, 2);
 					$year = substr($selected_date, 6, 4);
-					
 					$new_day = (int)$day+1;
-					
-					print($new_day." ".$month." ".$year);
-?>
-				" style="width:40px;float:right"></a>
+					print($new_day." ".$month." ".$year);?>" style="width:40px;float:right"></a>
 				<div id="selected_date">
 <?php 
 					$day = substr($selected_date, 0, 2);
@@ -169,44 +180,86 @@
 			</div>
 			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
 			
-			<div data-role="collapsible-set" data-theme="a" style="text-align:left">
+			<div id="mainView" data-role="collapsible-set" data-theme="a" style="text-align:left">
 <?php
+				if($day_events === ""){
+					//do nothing
+				}else{	
+					$events = explode(";",$day_events);
 
-				$events = explode(";",$day_events);
-				$array = array();
-				for ($i=0; $i<sizeof($events); $i++)
-				{
-					$details = explode(",",$events[$i]);
-				
-					$time = explode(":",$details[3]);
-					$period = substr($time[1],3);
+					$array = array();
+					for ($i=0; $i<sizeof($events); $i++)
+					{
+						$details = explode(",",$events[$i]);
 					
-					if($period == "PM" ){
-						if($time[0] != "12"){
-							$time[0] += 12;
-							$time[0] = $time[0].substr($time[1],0,-2)+0;
+						$time = explode(":",$details[3]);
+						$period = substr($time[1],3);
+						
+						if($period == "PM" ){
+							if($time[0] != "12"){
+								$time[0] += 12;
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}else{
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}
 						}else{
-							$time[0] = $time[0].substr($time[1],0,-2)+0;
+							$time[0] = $time[0].substr($time[1],0,-2) + 0;
 						}
-					}else{
-						$time[0] = $time[0].substr($time[1],0,-2) + 0;
+						
+						$array[$time[0]] = $events[$i];
 					}
-					
-					$array[$time[0]] = $events[$i];
+
+					ksort($array);
+
+					foreach($array as $key => $val)
+					{
+						$details = explode(",",$val);
+						print("<div data-role='collapsible' id='event'>");
+						print("<h3>" . $details[3] . " - " . $details[0] . "</h3>");
+						print("<p>Location: " . $details[1] . "</p>");
+						print("<p>Category: " . $details[2] . "</p>");
+						print("<p>Start Time: " . $details[3] . "</p>");
+						print("<p>End Time: " . $details[4] . "</p>");
+						print("</div>");
+					}
 				}
+?>	
+			</div>
+			<div id="editView" data-role="controlgroup" data-theme="a" style="text-align:left" hidden="true" data-icon="info">
+<?php
+				if($day_events === ""){
+					//do nothing
+				}else{
+					$events = explode(";",$day_events);
+					$array = array();
+					for ($i=0; $i<sizeof($events); $i++)
+					{
+						$details = explode(",",$events[$i]);
+					
+						$time = explode(":",$details[3]);
+						$period = substr($time[1],3);
+						
+						if($period == "PM" ){
+							if($time[0] != "12"){
+								$time[0] += 12;
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}else{
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}
+						}else{
+							$time[0] = $time[0].substr($time[1],0,-2) + 0;
+						}
+						
+						$array[$time[0]] = $events[$i];
+					}
 
-				ksort($array);
+					ksort($array);
 
-				foreach($array as $key => $val)
-				{
-					$details = explode(",",$val);
-					print("<div data-role='collapsible'>");
-					print("<h3>" . $details[3] . " - " . $details[0] . "</h3>");
-					print("<p>Location: " . $details[1] . "</p>");
-					print("<p>Category: " . $details[2] . "</p>");
-					print("<p>Start Time: " . $details[3] . "</p>");
-					print("<p>End Time: " . $details[4] . "</p>");
-					print("</div>");
+					foreach($array as $key => $val)
+					{
+						$details = explode(",",$val);
+						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' id='event' data-icon='delete' style='text-align:left'>". $details[3] . " - " . $details[0] . "</a>");
+					}
 				}
 ?>	
 			</div>	
