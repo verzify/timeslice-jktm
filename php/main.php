@@ -89,7 +89,7 @@
 				
 				var y = date.getFullYear();
 					
-       			 window.location = "main.php?selected_date=" + d + m + y;
+       			 window.location = "main.php?selected_date=" + d + " " +  m + " " + y;
 				}
 			});
 			
