@@ -64,7 +64,6 @@
 				<div class="small_clear"></div>
 				
 				<img src="images/TimeSliceLogo.jpg" alt="Time Slice App" style="width:100%;height:auto;margin-bottom:40px"/>
-				
 				<a href="main.php" data-ajax="false" data-role="button" data-icon="home" style="background:#7CFC00;width:250px;margin-left:auto;margin-right:auto">Start</a>
 				
             </div><!-- /content -->

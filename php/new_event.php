@@ -11,7 +11,7 @@
             <div data-role="header" data-position="fixed">
 				<a href="index.php" data-icon="home">Home</a>
 				<h1>New Event</h1>
-				<a href="settings.php" data-icon="gear" class="ui-btn-right">Options</a>
+				<a href="settings.php" data-icon="gear" class="ui-btn-right">Settings</a>
 			</div>
 
             <div data-role="content" style="background-color:white">

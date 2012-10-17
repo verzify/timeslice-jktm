@@ -2,7 +2,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <?php include 'imports.html'; ?> 
-        <title>Time Slice - New Event</title>
+        <title>Time Slice - Settings</title>
 
     </head>
     <body>
@@ -10,8 +10,8 @@
 
             <div data-role="header" data-position="fixed">
 				<a href="index.php" data-icon="home">Home</a>
-				<h1>Options</h1>
-				<a href="settings.php" data-icon="gear" class="ui-btn-right">Options</a>
+				<h1>Settings</h1>
+				<a href="settings.php" data-icon="gear" class="ui-btn-right">Settings</a>
 			</div>
 
             <div data-role="content" style="background-color:white">
@@ -19,6 +19,12 @@
                     <form id="eventForm" action="processEditSettings.php" method="GET">
                         <label for="eName">Sleeping Hours</label>
                         <input type="text" name="sleephours" id="sleephours" required="required" value="8"/>
+						
+						<label for="eName">Meal Hours</label>
+                        <input type="text" name="sleephours" id="sleephours" required="required" value="2"/>
+
+						<label for="eName">Rest Hours</label>
+                        <input type="text" name="sleephours" id="sleephours" required="required" value="3"/>
 
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a"><a href="main.php" data-role="button">Cancel</a></div>
