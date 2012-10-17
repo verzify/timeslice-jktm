@@ -94,34 +94,34 @@
 			});
 			
 			
-			// $("#submit").click(function(){
-				// if($("#eName").val() == "clash"){
+			$("#eventForm").submit(function(){
+				if($("#eName").val() == "clash"){
 					
-					// $(this).simpledialog({
-					// 'mode' : 'bool',
-					// 'prompt' : 'Conflict detected. Resolve?',
-					// 'useModal': true,
-					// 'buttons' : {
-					  // 'Resolve!': {
-						// click: function () {
-						  // $('#dialogoutput').text('Resolve!');
-						  
-						// }
-					  // },
-					  // 'Ignore': {
-						// click: function () {
-						  // $('#dialogoutput').text('Ignore');
-						  // $("#eventForm").submit();
-						// },
-						// icon: "delete",
-						// theme: "c"
-					  // }
-					// }
-				  // });
-
-				// }else{
-					
-				// }	
+					$(this).simpledialog2({
+					'mode' : 'button',
+					'headerText' : 'Conflict detected. Resolve?',
+					'useModal': true,
+					'buttons' : {
+					  'Resolve': {
+						click: function () {
+							confirm("resolver.php?" + "eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val());
+							$.mobile.changePage("resolver.php?" + "eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val()); 
+						}
+					  },
+					  'Ignore': {
+						click: function () {
+						  $.mobile.changePage("processAddEvent.php?eName=" + $("#eName").val() + "&eLocation=" + $("#eLocation").val() + "&category=" + $("#eCategory option:selected").val() + "&eStartDate=" + $("#eStartDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val());
+						},
+						icon: "delete",
+						theme: "c"
+					  }
+					}
+				  });
+				  return false;
+				}else{
+					return true;
+				}
+			});	
 		});
 	</script>
 	</head>

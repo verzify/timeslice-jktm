@@ -56,71 +56,14 @@
                         </fieldset>
                     </form>	
                 </div>
-                <a href="#resechdule" data-rel="dialog" >Open Popup</a>
-
-			<div data-role="popup" id="clash">
-				<h1>There is a clash!</h1>
-					<button id="resolve" data-role="button">Resolve</button>
-					<button id="ignore" data-role="button">Ignore</button>
-			</div>
-
 
             </div><!-- /content -->
             <div data-role="footer" data-id="fool" data-position="fixed">
                 <?php include 'footer.html'; ?> 
             </div><!-- /footer -->
+
         </div><!-- /page -->
 
-        <div data-role="page" id="resechdule" data-add-back-btn="true" >
-            <div data-role="header">
-                <h1>Clash Resolver</h1>
-            </div>
-            <h3>Stored Event </h3>
-            <label for="sStartDate">Start Date</label>
-            <input data-mini="true" type="date" name="sStartDate" id="sStartDate" data-role="datebox" data-options='{"mode": "calbox","overrideDateFormat": "%d %m %Y"}' value="<?php
-                print(date('d n Y'));
-                ?>"/>
-
-            <label for="sEndDate">End Date</label>
-            <input data-mini="true" type="date" name="sEndDate" id="sEndDate" data-role="datebox" data-options='{"mode": "calbox","overrideDateFormat": "%d %m %Y"}' value="<?php
-                   print(date('d n Y'));
-                ?>"/>
-
-            <label for="sStartTime">Start Time</label>
-            <input data-mini="true" type="date" name="sStartTime" id="sStartTime" data-role="datebox" 
-                   data-options='{"mode": "timebox"}' value="<?php
-                   print(date('h:i A'));
-                ?>" required="required"/>
-
-            <label for="sEndTime">End Time</label>
-            <input data-mini="true" type="date" name="sEndTime" id="sEndTime" data-role="datebox" 
-                   data-options='{"mode": "timebox"}' value="<?php
-                   print(date('h:i A', time() + 60 * 60));
-                ?>" required="required"/>
-           
-            <h3>New Event </h3>
-            <label for="nStartDate">Start Date</label>
-            <input data-mini="true" type="date" name="nStartDate" id="nStartDate" data-role="datebox" data-options='{"mode": "calbox","overrideDateFormat": "%d %m %Y"}' value="<?php
-                   print(date('d n Y'));
-                ?>"/>
-
-            <label for="nEndDate">End Date</label>
-            <input data-mini="true" type="date" name="nEndDate" id="nEndDate" data-role="datebox" data-options='{"mode": "calbox","overrideDateFormat": "%d %m %Y"}' value="<?php
-                   print(date('d n Y'));
-                ?>"/>
-
-            <label for="nStartTime">Start Time</label>
-            <input data-mini="true" type="date" name="nStartTime" id="nStartTime" data-role="datebox" 
-                   data-options='{"mode": "timebox"}' value="<?php
-                   print(date('h:i A'));
-                ?>" required="required"/>
-
-            <label for="nEndTime">End Time</label>
-            <input data-mini="true" type="date" name="nEndTime" id="nEndTime" data-role="datebox" 
-                   data-options='{"mode": "timebox"}' value="<?php
-                   print(date('h:i A', time() + 60 * 60));
-                ?>" required="required"/>
-            
-        </div>
+        
     </body>
 </html>
