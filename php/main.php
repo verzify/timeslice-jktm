@@ -104,8 +104,8 @@
 					'buttons' : {
 					  'Resolve': {
 						click: function () {
-							confirm("resolver.php?" + "eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val());
-							$.mobile.changePage("resolver.php?" + "eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val()); 
+							//confirm("resolver.php?eName=" + $("#eName").val() + "&eLocation=" + $("#eLocation").val() + "&category=" + $("#eCategory option:selected").val() + "&eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val());
+							$.mobile.changePage("resolver.php?eName=" + $("#eName").val() + "&eLocation=" + $("#eLocation").val() + "&category=" + $("#eCategory option:selected").val() + "&eStartDate=" + $("#eStartDate").val() + "&eEndDate=" + $("#eEndDate").val() + "&eStartTime=" + $("#eStartTime").val() + "&eEndTime=" + $("#eEndTime").val()); 
 						}
 					  },
 					  'Ignore': {
