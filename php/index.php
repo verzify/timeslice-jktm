@@ -56,11 +56,11 @@
     	
 	  </head>
 	<body>
-        <div data-role="page" style="background-color:white">
+        <div data-role="page" style="background-color:white;">
             
             <div id="top_banner"></div><!-- top banner -->
             
-            <div data-role="content" style="background-color:white">
+            <div data-role="content" style="background-color:white;height:auto">
 				<div class="small_clear"></div>
 				
 				<img src="images/TimeSliceLogo.jpg" alt="Time Slice App" style="width:100%;height:auto;margin-bottom:40px"/>

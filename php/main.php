@@ -127,8 +127,11 @@
 	</head>
 	<body>
         <div data-role="page" style="background-color:white;text-align:center">
-    	<div id="top_banner"></div><!-- top banner -->
-    	
+        <div data-role="header" data-position="fixed">
+			<a href="index.php" data-icon="home">Home</a>
+			<h1>Daily Slices</h1>
+			<a href="settings.php" data-icon="gear" class="ui-btn-right">Options</a>
+		</div>
         <div data-role="content" style="background-color:white">
         	<div id="title_row">
         	 <?php print($selected_day);  ?>
