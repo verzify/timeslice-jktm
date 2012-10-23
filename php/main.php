@@ -133,10 +133,13 @@
 					$("div[id=mainView]").hide("slow");
 					$('div[id=editView]').show("slow");
 					mainView = false;
+					$("a:contains('Edit') span span:last-child").html("Done");
+					
 				}else{
 					$('div[id=editView]').hide("slow");
 					$('div[id=mainView]').show("slow");
 					mainView = true;
+					$("a:contains('Done') span span:last-child").html("Edit");
 				}
 			});
 			
