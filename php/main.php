@@ -133,18 +133,23 @@
 					$("div[id=mainView]").hide("slow");
 					$('div[id=editView]').show("slow");
 					mainView = false;
-					$("a:contains('Edit') span span:last-child").html("Done");
+					$("a:contains('Edit') span span:first-child").html("Done");
 					
 				}else{
 					$('div[id=editView]').hide("slow");
 					$('div[id=mainView]').show("slow");
 					mainView = true;
-					$("a:contains('Done') span span:last-child").html("Edit");
+					$("a:contains('Done') span span:first-child").html("Edit");
 				}
 			});
 			
 			$("a[name=deleteEvent]").click(function(){
 				return confirm("Delete Event?");
+			});
+			
+			$("div[name=editEvent]").click(function(){
+				alert($("span[hidden=true]",this).html().replace(/amp;/gi,''));
+				$.mobile.changePage("edit_event.php"+ $("span[hidden=true]",this).html().replace(/amp;/gi,''));
 			});
 		});
 	</script>
@@ -228,7 +233,7 @@
 				}
 ?>	
 			</div>
-			<div id="editView" data-role="controlgroup" data-theme="a" style="text-align:left" hidden="true" data-icon="info">
+			<div id="editView"  data-theme="a" style="text-align:left" hidden="true" data-icon="info">
 <?php
 				if($day_events === ""){
 					//do nothing
@@ -261,11 +266,15 @@
 					foreach($array as $key => $val)
 					{
 						$details = explode(",",$val);
-						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' id='event' data-icon='delete' style='text-align:left'>". $details[3] . " - " . $details[0] . "</a>");
+						print("<div name='editEvent' id='editEvent' data-role='button'  style='text-align:left' data-mini='true'>");
+						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' data-icon='delete' data-inline='true' data-mini='true'  data-iconpos='notext' ></a>");
+						print($details[3]. " - ".$details[0]);
+						print("<span hidden='true'>?eName=".$details[0]."&eLocation=".$details[1]."&category=".$details[2]."&eStartDate=".$selected_date."&eEndDate=".$selected_date."&eStartTime=".$details[3]."&eEndTime=".$details[4]."&edit=true"."</span>"); 
+						print("</div>");
 					}
 				}
 ?>	
-			</div>	
+			</div>
             </div><!-- /content -->
             
             <?php include 'footer.html'; ?>   
