@@ -148,7 +148,7 @@
 			});
 			
 			$("div[name=editEvent]").click(function(){
-				alert($("span[hidden=true]",this).html().replace(/amp;/gi,''));
+				//alert($("span[hidden=true]",this).html().replace(/amp;/gi,''));
 				$.mobile.changePage("edit_event.php"+ $("span[hidden=true]",this).html().replace(/amp;/gi,''));
 			});
 		});
