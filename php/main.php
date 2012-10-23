@@ -152,9 +152,9 @@
 	<body>
         <div data-role="page" style="background-color:white;text-align:center">
         <div data-role="header" data-position="fixed">
-			<a href="index.php" data-icon="home">Home</a>
+			<a href="index.php" data-theme="d" data-icon="home">Logout</a>
 			<h1>Daily Slices</h1>
-			<a href="#" id="edit">Edit</a>
+			<a href="#" data-theme="d" data-icon="gear" id="edit">Edit</a>
 		</div>
         <div data-role="content" style="background-color:white">
         	<div id="title_row">

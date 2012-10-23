@@ -9,9 +9,8 @@
         <div data-role="page" style="background-color:white">
 
             <div data-role="header" data-position="fixed">
-				<a href="index.php" data-icon="home">Home</a>
+				<a href="index.php" data-theme="d" data-icon="home">Logout</a>
 				<h1>New Event</h1>
-				<a href="settings.php" data-icon="gear" class="ui-btn-right">Settings</a>
 			</div>
 
             <div data-role="content" style="background-color:white">
