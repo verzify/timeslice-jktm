@@ -76,7 +76,7 @@
 				</div>
 
 	        
-				<div id="weekly_content" style="text-align:center;background-color:white">
+				<div id="weekly_content" style="text-align:center;background-color:white;">
 <?php 
 
 					for ($i=0; $i<7; $i++)
@@ -99,9 +99,9 @@
 						elseif($new_day == "Sat") { $pie_name = "day6"; }
 						else { $pie_name = "day7";}
 
-						print("<a href='main.php?selected_date=" . $new_link_date . "'>");
-						print($new_day . " " . $new_display_date);
-						print("<img src='images/pie/" . $pie_name . ".jpg' style='width:100%;height:auto'/>");
+						print("<a href='main.php?selected_date=" . $new_link_date . "' style='margin-left:auto;margin-right:auto;'>");
+						print("<p>" . $new_day . " " . $new_display_date . "</p>");
+						print("<img src='images/pie/" . $pie_name . ".jpg' style='margin-left:auto;margin-right:auto;'/>");
 						print("</a>");
 					}
 ?>

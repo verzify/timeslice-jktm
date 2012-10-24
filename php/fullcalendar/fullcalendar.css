@@ -1,4 +1,4 @@
-/*
+﻿/*
  * FullCalendar v1.5.4 Stylesheet
  *
  * Copyright (c) 2011 Adam Shaw
@@ -62,6 +62,7 @@ html .fc,
 .fc-header-title h2 {
 	margin-top: 0;
 	white-space: nowrap;
+	font-size:medium;
 	}
 	
 .fc .fc-header-space {
