@@ -797,7 +797,6 @@ a.ui-link-inherit {
 	border-radius: 						9px;
 }
 
-
 /* Alt icon color
 -----------------------------------------------------------------------------------------------------------*/
 
@@ -829,6 +828,15 @@ a.ui-link-inherit {
 	.ui-icon-alt {
 		background-image: url(images/icons-36-black.png);
 	}
+}
+
+/* Custom icons */
+.ui-icon-timeslice-daily {
+	background-image:url('../images/navbar_icons/pie_day_icon.png');
+}
+
+.ui-icon-timeslice-weekly {
+	background-image:url('../images/navbar_icons/pie_week_icon.png');
 }
 
 /* plus minus */
