@@ -248,8 +248,8 @@
 						print("<p>Category: " . $details[2] . "</p>");
 						print("<p>Start Time: " . $details[3] . "</p>");
 						print("<p>End Time: " . $details[4] . "</p>");
-						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' data-inline='true' data-mini='true'>Delete</a>");
-						print("<a name='editEvent' id='editEvent' href='edit_event.php"."?eName=".$details[0]."&eLocation=".$details[1]."&category=".$details[2]."&eStartDate=".$selected_date."&eEndDate=".$selected_date."&eStartTime=".$details[3]."&eEndTime=".$details[4]."&edit=true"."' data-role='button' data-inline='true' data-mini='true' >Edit</a>");
+						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' data-inline='true' data-mini='true' style='margin-left:20%;background: #C80000; color: white;text-shadow: 0 1px 0 #444444;background-image: -webkit-gradient(linear, left top, left bottom, from( #FF0000/*{a-bar-background-start}*/), to( #990000/*{a-bar-background-end}*/)); /* Saf4+, Chrome */background-image: -webkit-linear-gradient( #FF0000/*{a-bar-background-start}*/, #990000/*{a-bar-background-end}*/);'>Delete</a>");
+						print("<a name='editEvent' id='editEvent' href='edit_event.php"."?eName=".$details[0]."&eLocation=".$details[1]."&category=".$details[2]."&eStartDate=".$selected_date."&eEndDate=".$selected_date."&eStartTime=".$details[3]."&eEndTime=".$details[4]."&edit=true"."' data-role='button' data-inline='true' data-mini='true' style='margin-left:10%;margin-right:15%;'>Edit</a>");
 						print("</div>");
 					}
 				}
