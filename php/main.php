@@ -1,10 +1,10 @@
 <?php
 
 	session_start();
-	
+
 	$selected_date = null;
 	$selected_day = null;
-	
+
 	if (!isset($_GET['selected_date']))
 	{
 		$selected_day = date('D',strtotime(date('d F Y')));
@@ -19,10 +19,10 @@
 
 		$selected_day = date('D',strtotime($day."-".$month."-".$year));
 	}
-	
+
 	$day_events = null;
 	$pie_name = null;
-	
+
 	if($selected_day == "Mon") 
 	{ 
 		$day_events = $_SESSION['day1_events'];
@@ -146,31 +146,10 @@
 			$("a[name=deleteEvent]").click(function(){
 				return confirm("Delete Event?");
 			});
-
-			function dooffsetDate() { // This does the actual work.  if you wanted based on "now", startdate should be = new Date();
-			  var startdate = $('#eStartDate').data('datebox').theDate,
-			  enddate = new Date(startdate.getFullYear(), startdate.getMonth(), startdate.getDate(), startdate.getHours(), startdate.getMinutes(), startdate.getSeconds(), 0);
-
-			  enddate.setSeconds(enddate.getSeconds());
-			  $('#eEndDate').data('datebox').theDate = enddate;
-			  $('#eEndDate').trigger('datebox', {'method':'doset'});
-			}
-
-			$('#eStartDate').live('change', function() {
-			  dooffsetDate();
-			});
-
-			function dooffsetTime() { // This does the actual work.  if you wanted based on "now", startdate should be = new Date();
-			  var startdate = $('#eStartTime').data('datebox').theDate,
-			  enddate = new Date(startdate.getFullYear(), startdate.getMonth(), startdate.getDate(), startdate.getHours(), startdate.getMinutes(), startdate.getSeconds(), 0);
-
-			  enddate.setSeconds(enddate.getSeconds() +3600);
-			  $('#eEndTime').data('datebox').theDate = enddate;
-			  $('#eEndTime').trigger('datebox', {'method':'doset'});
-			}
-
-			$('#eStartTime').live('change', function() {
-			  dooffsetTime();
+			
+			$("div[name=editEvent]").click(function(){
+				//alert($("span[hidden=true]",this).html().replace(/amp;/gi,''));
+				$.mobile.changePage("edit_event.php"+ $("span[hidden=true]",this).html().replace(/amp;/gi,''));
 			});
 		});
 	</script>
@@ -180,6 +159,7 @@
         <div data-role="header" data-position="fixed">
 			<a href="index.php" data-theme="d" data-icon="home">Logout</a>
 			<h1>Daily Slices</h1>
+			<a href="#" data-theme="d" data-icon="gear" id="edit">Edit</a>
 		</div>
         <div data-role="content" style="background-color:white">
         	<div id="title_row">
@@ -201,14 +181,14 @@
 					$day = substr($selected_date, 0, 2);
 					$month = substr($selected_date, 3, 2);
 					$year = substr($selected_date, 6, 4);
-					
+
 					print(date('d F Y', strtotime($day."-".$month."-".$year)));
 ?>	
 				</div>
 			</div>
 			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
 			
-			<div id="mainView" data-collapsed-Icon="arrow-d" data-expanded-Icon="arrow-u" data-role="collapsible-set" data-theme="a" style="text-align:left">
+			<div id="mainView" data-role="collapsible-set" data-theme="a" style="text-align:left">
 <?php
 				if($day_events === ""){
 					//do nothing
@@ -219,10 +199,10 @@
 					for ($i=0; $i<sizeof($events); $i++)
 					{
 						$details = explode(",",$events[$i]);
-					
+
 						$time = explode(":",$details[3]);
 						$period = substr($time[1],3);
-						
+
 						if($period == "PM" ){
 							if($time[0] != "12"){
 								$time[0] += 12;
@@ -233,7 +213,7 @@
 						}else{
 							$time[0] = $time[0].substr($time[1],0,-2) + 0;
 						}
-						
+
 						$array[$time[0]] = $events[$i];
 					}
 
@@ -248,14 +228,53 @@
 						print("<p>Category: " . $details[2] . "</p>");
 						print("<p>Start Time: " . $details[3] . "</p>");
 						print("<p>End Time: " . $details[4] . "</p>");
-						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' data-icon='delete' data-inline='true' data-mini='true'  data-iconpos='notext' ></a>");
-						print("<a name='editEvent' id='editEvent' href='edit_event.php"."?eName=".$details[0]."&eLocation=".$details[1]."&category=".$details[2]."&eStartDate=".$selected_date."&eEndDate=".$selected_date."&eStartTime=".$details[3]."&eEndTime=".$details[4]."&edit=true"."' data-role='button' data-icon='setting' data-inline='true' data-mini='true'  data-iconpos='notext' ></a>");
 						print("</div>");
 					}
 				}
 ?>	
 			</div>
-			
+			<div id="editView"  data-theme="a" style="text-align:left" hidden="true" data-icon="info">
+<?php
+				if($day_events === ""){
+					//do nothing
+				}else{
+					$events = explode(";",$day_events);
+					$array = array();
+					for ($i=0; $i<sizeof($events); $i++)
+					{
+						$details = explode(",",$events[$i]);
+
+						$time = explode(":",$details[3]);
+						$period = substr($time[1],3);
+
+						if($period == "PM" ){
+							if($time[0] != "12"){
+								$time[0] += 12;
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}else{
+								$time[0] = $time[0].substr($time[1],0,-2)+0;
+							}
+						}else{
+							$time[0] = $time[0].substr($time[1],0,-2) + 0;
+						}
+
+						$array[$time[0]] = $events[$i];
+					}
+
+					ksort($array);
+
+					foreach($array as $key => $val)
+					{
+						$details = explode(",",$val);
+						print("<div name='editEvent' id='editEvent' data-role='button'  style='text-align:left' data-mini='true'>");
+						print("<a name='deleteEvent' id='deleteEvent' href='delete_event.php?eName=".$details[0]."&eStartDate=".$selected_date."' data-role='button' data-icon='delete' data-inline='true' data-mini='true'  data-iconpos='notext' ></a>");
+						print($details[3]. " - ".$details[0]);
+						print("<span hidden='true'>?eName=".$details[0]."&eLocation=".$details[1]."&category=".$details[2]."&eStartDate=".$selected_date."&eEndDate=".$selected_date."&eStartTime=".$details[3]."&eEndTime=".$details[4]."&edit=true"."</span>"); 
+						print("</div>");
+					}
+				}
+?>	
+			</div>
             </div><!-- /content -->
             
             <?php include 'footer.html'; ?>   
