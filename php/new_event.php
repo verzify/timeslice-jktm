@@ -27,7 +27,7 @@
                             <option value="Work">Work</option>
                             <option value="Play">Play</option>
                             <option value="School">School</option>
-                            <option value="Home">Home</option>
+                            <option value="Home">CCA</option>
                         </select>
 
                         <label for="eStartDate">Start Date</label>

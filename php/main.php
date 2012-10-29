@@ -146,6 +146,32 @@
 			$("a[name=deleteEvent]").click(function(){
 				return confirm("Delete Event?");
 			});
+
+			function dooffsetDate() { // This does the actual work.  if you wanted based on "now", startdate should be = new Date();
+			  var startdate = $('#eStartDate').data('datebox').theDate,
+			  enddate = new Date(startdate.getFullYear(), startdate.getMonth(), startdate.getDate(), startdate.getHours(), startdate.getMinutes(), startdate.getSeconds(), 0);
+
+			  enddate.setSeconds(enddate.getSeconds());
+			  $('#eEndDate').data('datebox').theDate = enddate;
+			  $('#eEndDate').trigger('datebox', {'method':'doset'});
+			}
+
+			$('#eStartDate').live('change', function() {
+			  dooffsetDate();
+			});
+
+			function dooffsetTime() { // This does the actual work.  if you wanted based on "now", startdate should be = new Date();
+			  var startdate = $('#eStartTime').data('datebox').theDate,
+			  enddate = new Date(startdate.getFullYear(), startdate.getMonth(), startdate.getDate(), startdate.getHours(), startdate.getMinutes(), startdate.getSeconds(), 0);
+
+			  enddate.setSeconds(enddate.getSeconds() +3600);
+			  $('#eEndTime').data('datebox').theDate = enddate;
+			  $('#eEndTime').trigger('datebox', {'method':'doset'});
+			}
+
+			$('#eStartTime').live('change', function() {
+			  dooffsetTime();
+			});
 		});
 	</script>
 	</head>
