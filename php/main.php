@@ -206,7 +206,7 @@
 ?>	
 				</div>
 			</div>
-			<p>"Sleep is the elixir of life. It rejuvenates the soul"</p>
+
 
 			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
 			
@@ -257,6 +257,7 @@
 				}
 ?>	
 			</div>
+				<p>"Sleep is the elixir of life. It rejuvenates the soul"</p>
 			
             </div><!-- /content -->
             
