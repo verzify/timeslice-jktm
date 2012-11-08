@@ -189,12 +189,19 @@
 					$month = substr($selected_date, 3, 2);
 					$year = substr($selected_date, 6, 4);
 					$new_day = (int)$day-1;
+
+					if($new_day <10){
+						echo "0";
+					}
 					echo $new_day." ".$month." ".$year;?>" style="width:40px;float:left"></a>
 				<a data-role="button" data-icon="arrow-r" href="main.php?selected_date=<?php
 					$day = substr($selected_date, 0, 2);
 					$month = substr($selected_date, 3, 2);
 					$year = substr($selected_date, 6, 4);
 					$new_day = (int)$day+1;
+					if($new_day <10){
+						echo "0";
+					}
 					print($new_day." ".$month." ".$year);?>" style="width:40px;float:right"></a>
 				<div id="selected_date">
 <?php 
@@ -257,7 +264,32 @@
 				}
 ?>	
 			</div>
-				<p>"Sleep is the elixir of life. It rejuvenates the soul"</p>
+<?php
+
+			switch($selected_day){
+				case "Mon" :
+					print("<p>\"As you rush about with school and studies, slice some time out for your buddies!\"</p>");
+					break;
+				case "Tue" :
+					print("<p>\"Buzzing around like a busy bee, don't forget your zzZ...\"</p>");
+					break;
+				case "Wed" :
+					print("<p>\"You my friend are a work-a-holic...\"</p>");
+					break;
+				case "Thu" :
+					print("<p>\"Sleep is the elixir of life. It reguvenates the soul\"</p>");
+					break;
+				case "Fri" :
+					print("<p>\"All work and no play makes Jack a stressed kid with no friends. You need to rest more!\"<\p>");
+					break;
+				case "Sat" :
+					print("<p>\"Looks like you are having loads of fun today! Don't forget about your assignments on Monday!\"</p>");
+					break;
+				default :
+					print("<p>\"Hibernation is for POLAR BEARS ONLY!\"</p>");
+					break;
+			}
+?>
 			
             </div><!-- /content -->
             
