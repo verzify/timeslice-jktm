@@ -280,7 +280,7 @@
 					print("<p>\"Sleep is the elixir of life. It reguvenates the soul\"</p>");
 					break;
 				case "Fri" :
-					print("<p>\"All work and no play makes Jack a stressed kid with no friends. You need to rest more!\"<\p>");
+					print("<p>\"All work and no play makes Jack a stressed kid with no friends. You need to rest more!\"</p>");
 					break;
 				case "Sat" :
 					print("<p>\"Looks like you are having loads of fun today! Don't forget about your assignments on Monday!\"</p>");
