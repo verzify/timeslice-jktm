@@ -206,8 +206,10 @@
 ?>	
 				</div>
 			</div>
-			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
 			<p>"Sleep is the elixir of life. It rejuvenates the soul"</p>
+
+			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
+			
 			<div id="mainView" data-collapsed-Icon="arrow-d" data-expanded-Icon="arrow-u" data-role="collapsible-set" data-theme="a" style="text-align:left">
 <?php
 				if($day_events === ""){
