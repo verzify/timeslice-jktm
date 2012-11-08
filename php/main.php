@@ -207,7 +207,7 @@
 				</div>
 			</div>
 			<img id="pie_chart" src="images/pie/<?php print($pie_name); ?>.jpg" alt="<?php print($pie_name); ?>" style="margin-left:auto;margin-right:auto;"/>
-			
+			<p>"Sleep is of the essence so that you can enjoy while you play..."</p>
 			<div id="mainView" data-collapsed-Icon="arrow-d" data-expanded-Icon="arrow-u" data-role="collapsible-set" data-theme="a" style="text-align:left">
 <?php
 				if($day_events === ""){
